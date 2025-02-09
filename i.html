@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTBBBP</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <div class="container">
+        
+        <button id="blastButton">CLICK</button>
+        
+    </div>
+    <script src="s.js"></script>
+    <!-- Go Back Button -->
+<!-- Hidden Audio Element (Autoplay & Loop) -->
+<audio id="backgroundAudio" src="audio/Jhol.mp3" preload="auto" loop></audio>
+
+<!-- Go Back Button -->
+<button id="goBack">Go Back</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("backgroundAudio");
+
+        // Attempt autoplay
+        audio.play().catch(() => {
+            console.log("Autoplay blocked. Waiting for user interaction...");
+            
+            // Play audio on first user interaction (click/tap)
+            document.addEventListener("click", function () {
+                audio.play();
+            }, { once: true });
+        });
+
+        document.getElementById("goBack").addEventListener("click", function () {
+            window.location.href = "next.html"; // Redirects back to the main page
+        });
+    });
+</script>
+
+<style>
+    #goBack {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: rgba(255, 0, 0, 0.8);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #goBack:hover {
+        background-color: rgba(255, 0, 0, 1);
+    }
+</style>
+
+
+</body>
+</html>

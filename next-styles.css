@@ -1,0 +1,57 @@
+body {
+    background: url("https://github.com/Ahmadam37/SharePoint/assets/51037193/5d3683b0-1894-451a-a7a0-a406adb3bd77") 
+    no-repeat center center fixed;
+    background-size: cover;
+}
+
+.moon {
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px #000 inset, 8px 20px 2px rgba(0, 0, 0, 0.5);
+}
+
+.moon::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: 48px -48px 50px 2px #000 inset;
+}
+
+.moon > div {
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    animation: spin 40s linear alternate infinite;
+    background: url("https://github.com/Ahmadam37/SharePoint/assets/51037193/fd6dfbfa-645a-4916-9c74-2cd196bc7238");
+    background-size: cover;
+}
+
+@keyframes spin {
+    to {
+        transform: translateX(-50%);
+    }
+}
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}

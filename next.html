@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Moon</title>
+    <link rel="stylesheet" href="next-styles.css">
+    <style>
+        body {
+            background: url("https://github.com/Ahmadam37/SharePoint/assets/51037193/5d3683b0-1894-451a-a7a0-a406adb3bd77") 
+            no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .moon {
+            width: 400px;
+            height: 400px;
+            position: fixed;
+            top: 0px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px #000 inset, 8px 20px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .moon::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border-radius: 50%;
+            box-shadow: 48px -48px 50px 2px #000 inset;
+        }
+
+        .moon > div {
+            width: 200%;
+            height: 100%;
+            position: absolute;
+            animation: spin 40s linear alternate infinite;
+            background: url("https://github.com/Ahmadam37/SharePoint/assets/51037193/fd6dfbfa-645a-4916-9c74-2cd196bc7238");
+            background-size: cover;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8em;
+            color: white;
+            font-family: 'Great Vibes', cursive;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Add styles for the buttons */
+        .button-container {
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 123, 255, 1); /* Solid blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="moon">
+        <div></div>
+    </div>
+
+    <!-- Centered "YOU" Text -->
+    <div class="center-text">YOU</div>
+
+
+    <!-- Go Back Button -->
+    <button id="goBack">Go Back</button>
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <a href="sorry.html" class="nav-button">wt i wanna say</a>
+        <a href="i.html" class="nav-button">wt i REALLY wanna say</a>
+    </div>
+<!-- Hidden Audio Element (Autoplay) -->
+<!-- Hidden Audio Element (Autoplay & Loop) -->
+<audio id="backgroundAudio" src="audio/mysong2.mp3" preload="auto" loop></audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("backgroundAudio");
+
+        // Attempt autoplay
+        audio.play().catch(() => {
+            console.log("Autoplay blocked. Waiting for user interaction...");
+            
+            // Play audio on first user interaction (click/tap)
+            document.addEventListener("click", function () {
+                audio.play();
+            }, { once: true });
+        });
+
+        document.getElementById("goBack").addEventListener("click", function () {
+            window.location.href = "index.html"; // Redirects back to the main page
+        });
+    });
+</script>
+
